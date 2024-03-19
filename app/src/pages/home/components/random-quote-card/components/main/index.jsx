@@ -1,6 +1,5 @@
 export const Main = ({ quote, loading, error }) => {
 	const loadingText = loading && `text-gray-200`;
-	console.log('main loading', loading);
 	return (
 		<div className='w-full flex flex-col items-center '>
 			<h1 id='text' className={`min-w-6/12 text-center font-bold text-xl ${loadingText}`}>
