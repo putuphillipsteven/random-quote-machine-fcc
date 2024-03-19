@@ -1,12 +1,14 @@
-import { Fragment, useState } from 'react';
+import { useState } from 'react';
+import { Home } from './pages/home/container';
 
 function App() {
-	const [count, setCount] = useState(0);
-
 	return (
-		<Fragment>
-			<h1 className='font-mono'>Test</h1>
-		</Fragment>
+		<div
+			className='p-4 flex flex-col items-center justify-center max-w-screen
+		 h-screen bg-rose-600 font-mono'
+		>
+			<Home />
+		</div>
 	);
 }
 
