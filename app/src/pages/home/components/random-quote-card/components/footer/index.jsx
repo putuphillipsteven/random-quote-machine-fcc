@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
 import { getQuote } from '../../../../services/readQuotes';
 import { BsTwitterX } from 'react-icons/bs';
-export const Footer = ({ quote, setQuote, setLoading, setError, loading }) => {
+import { generateRandomColours } from '../../../../services/randomColours';
+export const Footer = ({ quote, setQuote, setLoading, setError, loading, colour, setColour }) => {
 	const shareToTwitterLink = `https://twitter.com/intent/post?hashtags=quotes&related=freecodecamp&text="${quote.quote}" ${quote.author}`;
-
+	console.log(`colour`, colour);
 	return (
 		<div className='w-full flex justify-between'>
 			<Link
@@ -12,8 +13,8 @@ export const Footer = ({ quote, setQuote, setLoading, setError, loading }) => {
 				className='btn-primary flex content-center justify-center'
 			>
 				<button
-					id='new-quote'
-					onClick={() => {
+					id='tweet-quote'
+					onClick={async () => {
 						getQuote(setQuote, setLoading, setError);
 					}}
 				>
@@ -21,9 +22,10 @@ export const Footer = ({ quote, setQuote, setLoading, setError, loading }) => {
 				</button>
 			</Link>
 			<button
-				id='tweet-quote'
-				className='btn-primary'
-				onClick={() => {
+				id='new-quote'
+				className={`btn-primary`}
+				onClick={async () => {
+					await generateRandomColours(setColour);
 					getQuote(setQuote, setLoading, setError);
 				}}
 				disabled={loading}

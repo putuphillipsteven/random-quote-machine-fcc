@@ -1,8 +1,8 @@
-export const Main = ({ quote, loading, error }) => {
-	const loadingText = loading && `text-gray-200`;
+export const Main = ({ quote, loading, error, colour }) => {
+	const loadingText = loading ? ` text-gray-200` : ` text-${colour}`;
 	return (
 		<div className='w-full flex flex-col items-center '>
-			<h1 id='text' className={`min-w-6/12 text-center font-bold text-xl ${loadingText}`}>
+			<h1 id='text' className={'min-w-6/12 text-center font-bold text-xl ' + loadingText}>
 				{quote.quote ? quote.quote : 'Click New Quote Button'}
 			</h1>
 			{quote.author && (
