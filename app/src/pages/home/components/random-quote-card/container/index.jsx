@@ -8,9 +8,18 @@ export const RandomQuoteCard = () => {
 	const [error, setError] = useState('');
 
 	return (
-		<div id='quote-box' className='p-4 flex flex-col items-stretch gap-y-2 bg-white min-w-8/12'>
+		<div
+			id='quote-box'
+			className='p-4 flex flex-col items-stretch gap-y-2 bg-white w-full md:w-7/12'
+		>
 			<Main quote={quote} loading={loading} error={error} />
-			<Footer setQuote={setQuote} setLoading={setLoading} setError={setError} loading={loading} />
+			<Footer
+				setQuote={setQuote}
+				setLoading={setLoading}
+				setError={setError}
+				loading={loading}
+				quote={quote}
+			/>
 		</div>
 	);
 };
